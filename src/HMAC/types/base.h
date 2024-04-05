@@ -1,0 +1,4 @@
+#ifndef HMAC_TYPES_BASE_H
+#define HMAC_TYPES_BASE_H
+
+#endif //HMAC_TYPES_BASE_H

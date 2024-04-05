@@ -1,0 +1,4 @@
+#ifndef HMAC_ERRORS_BASE_H
+#define HMAC_ERRORS_BASE_H
+
+#endif //HMAC_ERRORS_BASE_H
