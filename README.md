@@ -1,10 +1,10 @@
 <div align="center">
-  <img src="assets/img.jpg">
+  <img src="assets/zk-Call Preview [C++].png">
 </div>
 <h1 align="center">zk-Call & Labs</h1>
 
 <div align="center">
-  <strong>"Zero-Knowledge" Proof Implementation with HMAC Communication</strong>
+  <strong>"Zero-Knowledge" Proof Implementation with HMAC Communication in C++</strong>
 </div>
 <br />
 <div align="center">
@@ -17,73 +17,133 @@
 </div>
 <br />
 
-
-
 ## Table of Contents
 - [Credits](#credits)
 - [Purpose](#purpose)
 - [How it Works](#how-it-works)
 - [API](#api)
 - [Example Usage](#example-usage)
+<br>
+
+# Credits
+
+This repository hosts a refined implementation of [**Schnorr's protocol**](https://en.wikipedia.org/wiki/Schnorr_signature) , innovatively incorporating a state seed for enhanced security measures. While the underlying proofs may appear intricate, I aim to elucidate their functionality to the best of my ability. However, for a deeper understanding, I encourage referencing the seminal research papers underpinning this implementation, as they offer comprehensive insights.
+
+---
+
+![Detailed Schematic Overview of Schnorr's Protocol (Example)](assets/Schnorr's%20Protocol.png)
+<br>
+<br>
+
+**For further exploration:**
+
+[**Elliptic Curve Based "Zero-Knowledge" Proofs and Their Applicability on Resource Constrained Devices by Ioannis Chatzigiannakis, Apostolos Pyrgelis, Paul G. Spirakis, and Yannis C. Stamatiou**](https://arxiv.org/pdf/1107.1626.pdf)
+
+---
+
+![Detailed Schematic Overview of Elliptic Curves (Example)](assets/Elliptic%20Curve.png)
+<br>
+
+Additionally, this repository delves into the concepts of **"Zero-Knowledge" Proofs (ZKPs)** and **Hash-based Message Authentication Codes (HMACs)**. **ZKPs** are cryptographic protocols that allow one party **(the prover)** to prove to another party **(the verifier)** that a given statement is true, without revealing any additional information beyond the validity of the statement itself. This property is particularly valuable for preserving privacy while establishing trust.
+<br>
+
+On the other hand, **HMACs** are a type of cryptographic hash function used for message authentication. They involve a cryptographic hash function **(such as SHA-256)** and a secret cryptographic key. **HMACs** provide a way to verify both the data integrity and the authenticity of a message, ensuring that it has not been altered or tampered with during transmission and that it indeed originates from the purported sender.
+<br>
+<br>
+
+# Purpose
+
+In today's rapidly evolving IT and application development landscape, **"Zero-Knowledge" Proofs (ZKPs)** emerge as a pivotal paradigm for authentication security. Their capacity to affirm the validity of a claim, such as proving possession of a secret password — without revealing any sensitive information about the claim itself, such as passwords or hashes, revolutionizes the assurance of secure AAA operations (authentication, authorization, and accounting).
+
+---
+
+![The Purpose of our Repositories and The Overall Technology](assets/Purpose-1.png)
+<br>
+
+**zk-Call & Labs** represents an implementation of a [**Non-Interactive "Zero-Knowledge" Proof**](https://en.wikipedia.org/wiki/Non-interactive_zero-knowledge_proof) **(NIZKP)** protocol tailored specifically for validating text-based secrets. This framework proves invaluable for safeguarding passwords and other authentication mechanisms, ensuring robust security measures without compromising privacy. Additionally, the integration of **HMAC (Hash-Based Message Authentication Code)** further fortifies the authentication process, enhancing data integrity and thwarting potential security breaches.
+<br>
+<br>
+
+# How It Works
+
+The authentication protocol employed in this system operates based on two fundamental concepts:
+**"Zero-Knowledge" Proofs (ZKPs)** and **Hash-Based Message Authentication Code (HMAC)**. Let's delve into each of these components and understand how they synergize to ensure secure authentication in messaging applications.
+<br>
+
+"Zero-Knowledge" Proofs (ZKPs)
+---
 
 
-## Credits
-This repository hosts a refined implementation of Schnorr's protocol, innovatively incorporating a state seed for enhanced security measures. While the underlying proofs may appear intricate, I aim to elucidate their functionality to the best of my ability. However, for a deeper understanding, I encourage referencing the seminal research papers underpinning this implementation, as they offer comprehensive insights.
+#### **"Zero-Knowledge" Proofs (ZKPs):** 
+**ZKPs** form the bedrock of privacy-preserving authentication mechanisms. These proofs allow one party **(the prover)** to demonstrate the validity of a claim to another party **(the verifier)** without revealing any additional information beyond the claim's validity. In essence, **ZKPs** enable authentication without the need for the prover to disclose sensitive data, such as passwords or cryptographic keys.
 
-For further exploration:
+---
 
-[Elliptic Curve Based "Zero-Knowledge" Proofs and Their Applicability on Resource Constrained Devices by Ioannis Chatzigiannakis, Apostolos Pyrgelis, Paul G. Spirakis, and Yannis C. Stamatiou](https://arxiv.org/pdf/1107.1626.pdf)
+![Detailed Schematic Overview of "Zero-Knowledge" Technology (1)](assets/ZKP-HMAC-1.png)
+![Detailed Schematic Overview of "Zero-Knowledge" Technology (2)](assets/ZKP-HMAC-2.png)
+![Detailed Schematic Overview of "Zero-Knowledge" Technology (3)](assets/ZKP-HMAC-3.png)
+![Detailed Schematic Overview of "Zero-Knowledge" Technology (4)](assets/ZKP-HMAC-4.png)
+<br>
 
-Additionally, this repository delves into the concepts of "Zero-Knowledge" Proofs (ZKPs) and Hash-based Message Authentication Codes (HMACs). ZKPs are cryptographic protocols that allow one party (the prover) to prove to another party (the verifier) that a given statement is true, without revealing any additional information beyond the validity of the statement itself. This property is particularly valuable for preserving privacy while establishing trust.
 
-On the other hand, HMACs are a type of cryptographic hash function used for message authentication. They involve a cryptographic hash function (such as SHA-256) and a secret cryptographic key. HMACs provide a way to verify both the data integrity and the authenticity of a message, ensuring that it has not been altered or tampered with during transmission and that it indeed originates from the purported sender.
+#### **Application in Authentication:** 
+In the context of messaging applications, **ZKPs** play a pivotal role in verifying a user's identity without the need to transmit explicit credentials over the network. Instead, users can generate cryptographic proofs attesting to their identity or possession of certain credentials without exposing those credentials themselves. This ensures that sensitive information remains confidential during the authentication process, bolstering security and privacy.
+<br>
+<br>
 
-
-## Purpose
-In today's rapidly evolving IT and application development landscape, "Zero-Knowledge" Proofs (ZKPs) emerge as a pivotal paradigm for authentication security. Their capacity to affirm the validity of a claim—such as proving possession of a secret password—without revealing any sensitive information about the claim itself, such as passwords or hashes, revolutionizes the assurance of secure AAA operations (authentication, authorization, and accounting). OURNAME represents an implementation of a [Non-Interactive "Zero-Knowledge" Proof](https://en.wikipedia.org/wiki/Non-interactive_zero-knowledge_proof) (NIZKP) protocol tailored specifically for validating text-based secrets. This framework proves invaluable for safeguarding passwords and other authentication mechanisms, ensuring robust security measures without compromising privacy. Additionally, the integration of HMAC (Hash-Based Message Authentication Code) further fortifies the authentication process, enhancing data integrity and thwarting potential security breaches.
-
-## How It Works
-
-The authentication protocol employed in this system operates based on two fundamental concepts: "Zero-Knowledge" Proofs (ZKPs) and Hash-Based Message Authentication Code (HMAC). Let's delve into each of these components and understand how they synergize to ensure secure authentication in messaging applications.
-
-"Zero-Knowledge" Proofs (ZKPs) form the bedrock of privacy-preserving authentication mechanisms. These proofs allow one party (the prover) to demonstrate the validity of a claim to another party (the verifier) without revealing any additional information beyond the claim's validity. In essence, ZKPs enable authentication without the need for the prover to disclose sensitive data, such as passwords or cryptographic keys.
-
-Application in Authentication:
-In the context of messaging applications, ZKPs play a pivotal role in verifying a user's identity without the need to transmit explicit credentials over the network. Instead, users can generate cryptographic proofs attesting to their identity or possession of certain credentials without exposing those credentials themselves. This ensures that sensitive information remains confidential during the authentication process, bolstering security and privacy.
 
 Hash-Based Message Authentication Code (HMAC)
-HMAC provides a robust mechanism for verifying the integrity and authenticity of messages exchanged between parties. It involves the use of a cryptographic hash function in conjunction with a secret key to generate a unique code (the HMAC) for each message. This code serves as a digital signature, allowing the recipient to verify that the message has not been tampered with or altered during transmission.
+---
 
-Application in Authentication:
-In messaging applications, HMAC can be employed to authenticate message senders and ensure the integrity of communication channels. By appending an HMAC to each message using a shared secret key, both the sender and recipient can validate the message's authenticity upon receipt. Any unauthorized modifications to the message would result in a mismatch between the computed HMAC and the received HMAC, thereby alerting the recipient to potential tampering.
+#### **Hash-Based Message Authentication Code (HMAC):**
+**HMAC** provides a robust mechanism for verifying the integrity and authenticity of messages exchanged between parties. It involves the use of a cryptographic hash function in conjunction with a secret key to generate a unique code **(the HMAC)** for each message. This code serves as a digital signature, allowing the recipient to verify that the message has not been tampered with or altered during transmission.
 
-Synergistic Operation
-When combined, "Zero-Knowledge" Proofs and HMAC create a formidable framework for secure authentication in messaging applications. ZKPs facilitate identity verification without divulging sensitive information, while HMAC ensures the integrity and authenticity of messages exchanged between parties. Together, these mechanisms uphold the confidentiality, integrity, and authenticity of communication channels, safeguarding users' privacy and security in the digital realm.
+---
+
+![Detailed Schematic Overview of HMAC Encryption](assets/HMAC.png)
 
 
-## API
+#### **Application in Authentication:**
+In messaging applications, **HMAC** can be employed to authenticate message senders and ensure the integrity of communication channels. By appending an **HMAC** to each message using a shared secret key, both the sender and recipient can validate the message's authenticity upon receipt. Any unauthorized modifications to the message would result in a mismatch between the **computed HMAC** and the **received HMAC**, thereby alerting the recipient to potential tampering.
+<br>
+<br>
 
-The `"HMAC_Client"` С++ API is meant to be simple and intuitive:
+Synergistic Operation:
+---
+When combined, **"Zero-Knowledge" Proofs** and **HMAC** create a formidable framework for secure authentication in messaging applications. **ZKPs** facilitate identity verification without divulging sensitive information, while **HMAC** ensures the integrity and authenticity of messages exchanged between parties. Together, these mechanisms uphold the confidentiality, integrity, and authenticity of communication channels, safeguarding users' privacy and security in the digital realm.
 
-### Core Components
+---
+
+![The Advantages of Synergy between "Zero-Knowledge" Proof and HMAC](assets/Synergistic%20Operation.png)
+<br>
+<br>
+
+# API
+
+The **`"HMAC_Client"`** С++ API is meant to be simple and intuitive:
+
+## Core Components
+The **`Core Components`** streamline secure message **Encryption** and **Decryption**, supporting both chunk and character-level processing for enhanced data protection.
+
+![Detailed Schematic Overview of Core Components](assets/Core%20Components.png)
+
+---
 
 #### HMAC_Client.encrypt_message_by_chunks:
-Method to encrypt a message by processing it in chunks
-
+Method to **encrypt a message** by processing it in **chunks**.
 
     std::string encrypt_message_by_chunks(const std::string& message);
 
         message: string                    # message: The message to be encrypted
 
 #### HMAC_Client.encrypt_message:
-Method to encrypt a message by char
-
+Method to **encrypt a message** by a **chars**.
 
     std::string encrypt_message(const std::string& message);
 
         message: string                    # message: The char to be encrypted
 #### HMAC_Client.decrypt_message_by_chunks:
-Method to decrypt a Method to encrypt a message by processing it in chunks
+Method to **decrypt a message** by processing it in **chunks**.
 
      std::string decrypt_message_by_chunks(const std::string& message);
 
@@ -91,19 +151,18 @@ Method to decrypt a Method to encrypt a message by processing it in chunks
 
 
 #### HMAC_Client.decrypt_message:
-Method to dencrypt a message by char
+Method to **decrypt a message** by processing it in **chars**.
 
      std::string encrypt_message(const std::string& message);
 
         message: string                    # message: The char to be dencrypted
 
+---
 
+# Example Usage
+TODO: Include **`Example Usage`**
 
-
-## Example Usage
-TODO: Include example usage
-
-#### Example 1
+## Example 1
 
     #include <iostream> // Include the input/output stream standard header
     #include <thread> // Include the thread standard header
@@ -200,8 +259,9 @@ TODO: Include example usage
         return 0; // Return 0 to indicate successful execution
     }
 
+---
 
-#### Example 2
+## Example 2
 
     #include "src/ZeroKnowledge/core/base.h" // Include the header file for ZeroKnowledge class
 
@@ -249,7 +309,9 @@ TODO: Include example usage
         return 0; // Return 0 to indicate successful execution
     }
 
-#### Example 3
+---
+
+## Example 3
 
     #include "src/ZeroKnowledge/core/base.h" // Include the header file for ZeroKnowledge class
     #include "src/HMAC/core/base.h" // Include the header file for HMAC_Client functionality
