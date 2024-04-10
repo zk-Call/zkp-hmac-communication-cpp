@@ -125,7 +125,7 @@ The **`"HMAC_Client"`** С++ API is meant to be simple and intuitive:
 ## Core Components
 The **`Core Components`** streamline secure **Message Encryption** and **Decryption**, supporting both **Chunk** and **Character-Level** processing for enhanced data protection.
 
-![Detailed Schematic Overview of Core Components](assets/Core%20Components.png)
+![Detailed Schematic Overview of Core Components](assets/Core%20Components%20HMAC.png)
 
 ---
 
