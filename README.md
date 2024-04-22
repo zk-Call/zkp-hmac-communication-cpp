@@ -17,7 +17,7 @@
 </div>
 <br />
 
-## Table of Contents
+# Table of Contents
 - [Credits](#credits)
 - [Purpose](#purpose)
 - [How it Works](#how-it-works)
@@ -27,7 +27,7 @@
 
 # Credits
 
-This repository hosts a refined implementation of [**Schnorr's protocol**](https://en.wikipedia.org/wiki/Schnorr_signature) , innovatively incorporating a state seed for enhanced security measures. While the underlying proofs may appear intricate, I aim to elucidate their functionality to the best of my ability. However, for a deeper understanding, I encourage referencing the seminal research papers underpinning this implementation, as they offer comprehensive insights.
+This repository hosts a refined implementation of [**Schnorr's Protocol**](https://en.wikipedia.org/wiki/Schnorr_signature) , innovatively incorporating a state seed for enhanced security measures. While the underlying proofs may appear intricate, I aim to elucidate their functionality to the best of my ability. However, for a deeper understanding, I encourage referencing the seminal research papers underpinning this implementation, as they offer comprehensive insights.
 
 ---
 
@@ -108,7 +108,7 @@ In messaging applications, **HMAC** can be employed to authenticate message send
 <br>
 <br>
 
-Synergistic Operation:
+Synergistic Operation
 ---
 When combined, **"Zero-Knowledge" Proofs** and **HMAC** create a formidable framework for secure authentication in messaging applications. **ZKPs** facilitate identity verification without divulging sensitive information, while **HMAC** ensures the integrity and authenticity of messages exchanged between parties. Together, these mechanisms uphold the confidentiality, integrity, and authenticity of communication channels, safeguarding users' privacy and security in the digital realm.
 
@@ -129,33 +129,33 @@ The **`Core Components`** streamline secure **Message Encryption** and **Decrypt
 
 ---
 
-#### HMAC_Client.encrypt_message_by_chunks:
+#### HMAC_Client.encrypt_message_by_chunks
 Method to **encrypt a message** by processing it in **chunks**.
 
     std::string encrypt_message_by_chunks(const std::string& message);
 
-        message: string                    # message: The message to be encrypted
+        message: string                    # The message to be encrypted, processed in chunks
 
-#### HMAC_Client.encrypt_message:
+#### HMAC_Client.encrypt_message
 Method to **encrypt a message** by a **chars**.
 
     std::string encrypt_message(const std::string& message);
 
-        message: string                    # message: The char to be encrypted
-#### HMAC_Client.decrypt_message_by_chunks:
+        message: string                    # The message to be encrypted, processed in characters
+
+#### HMAC_Client.decrypt_message_by_chunks
 Method to **decrypt a message** by processing it in **chunks**.
 
      std::string decrypt_message_by_chunks(const std::string& message);
 
-        message: string                    # message: The message to be dencrypted
+        message: string                    # The message to be decrypted, processed in chunks
 
-
-#### HMAC_Client.decrypt_message:
+#### HMAC_Client.decrypt_message
 Method to **decrypt a message** by processing it in **chars**.
 
      std::string encrypt_message(const std::string& message);
 
-        message: string                    # message: The char to be dencrypted
+        message: string                    # The message to be decrypted, processed in characters
 
 ---
 
