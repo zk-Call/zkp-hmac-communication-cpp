@@ -174,31 +174,31 @@ TODO: Include **`Example Usage`**
     constexpr bool DEBUG = true; // Define a constexpr boolean variable DEBUG with value true
     
     void print_msg(const std::string &who, const std::string &message) { // Define a function to print messages
-    if (DEBUG) { // Check if debugging is enabled
-    std::cout << "[" << who << "] " << message << std::endl; // Print the message with source identifier
+        if (DEBUG) { // Check if debugging is enabled
+            std::cout << "[" << who << "] " << message << std::endl; // Print the message with source identifier
         }
     }
     
     bool check_if_queue_empty(std::queue<std::string> &socket) { // Define a function to check if a queue is empty
-    while (true) { // Infinite loop
-    if (!socket.empty()) { // Check if the queue is not empty
-    return true; // Return true if the queue is not empty
+        while (true) { // Infinite loop
+            if (!socket.empty()) { // Check if the queue is not empty
+                return true; // Return true if the queue is not empty
             }
         }
     }
     
     std::string get_content_from_socket(std::queue<std::string> &socket) { // Define a function to get content from a socket (queue)
-    if (check_if_queue_empty(socket)) { // Check if the queue is not empty
-    std::string val = socket.front(); // Get the front element of the queue
-    socket.pop(); // Remove the front element from the queue
-    return val; // Return the retrieved value
+        if (check_if_queue_empty(socket)) { // Check if the queue is not empty
+            std::string val = socket.front(); // Get the front element of the queue
+            socket.pop(); // Remove the front element from the queue
+            return val; // Return the retrieved value
         }
     }
     
     void client(std::queue<std::string> &client_socket, std::queue<std::string> &server_socket) { // Define the client function
-    // Generating the main seed
-    SeedGenerator seed_generator("job"); // Create an instance of SeedGenerator
-    std::vector<unsigned char> main_seed = seed_generator.generate(); // Generate the main seed
+        // Generating the main seed
+        SeedGenerator seed_generator("job"); // Create an instance of SeedGenerator
+        std::vector<unsigned char> main_seed = seed_generator.generate(); // Generate the main seed
     
         // Creating an instance of HMAC_Client for encrypting messages
         print_msg("client", "first");
@@ -225,8 +225,8 @@ TODO: Include **`Example Usage`**
     }
     
     void server(std::queue<std::string> &server_socket, std::queue<std::string> &client_socket) { // Define the server function
-    // Receiving the main seed from the client
-    std::string main_seed = get_content_from_socket(server_socket); // Receive the main seed from the client
+        // Receiving the main seed from the client
+        std::string main_seed = get_content_from_socket(server_socket); // Receive the main seed from the client
     
         // Creating an instance of HMAC_Client for encrypting messages
         HMAC_Client obj("sha256", std::vector<unsigned char>(main_seed.begin(), main_seed.end()), 1); // Create an instance of HMAC_Client
@@ -248,9 +248,9 @@ TODO: Include **`Example Usage`**
     }
     
     int main() { // Main function
-    std::queue<std::string> client_socket, server_socket; // Create queues for client and server sockets
-    std::thread client_thread(client, std::ref(client_socket), std::ref(server_socket)); // Create a thread for the client function
-    std::thread server_thread(server, std::ref(server_socket), std::ref(client_socket)); // Create a thread for the server function
+        std::queue<std::string> client_socket, server_socket; // Create queues for client and server sockets
+        std::thread client_thread(client, std::ref(client_socket), std::ref(server_socket)); // Create a thread for the client function
+        std::thread server_thread(server, std::ref(server_socket), std::ref(client_socket)); // Create a thread for the server function
     
         // Joining the threads to wait for their completion
         client_thread.join(); // Wait for the client thread to finish
@@ -266,8 +266,8 @@ TODO: Include **`Example Usage`**
     #include "src/ZeroKnowledge/core/base.h" // Include the header file for ZeroKnowledge class
 
     int main() { // Main function
-    // Creating a ZeroKnowledge object for the client with specified curve and hash algorithm
-    ZeroKnowledge clientObject = ZeroKnowledge::createNew("secp256k1", "sha3_256");
+        // Creating a ZeroKnowledge object for the client with specified curve and hash algorithm
+        ZeroKnowledge clientObject = ZeroKnowledge::createNew("secp256k1", "sha3_256");
     
         // Creating a ZeroKnowledge object for the server with specified curve and hash algorithm
         ZeroKnowledge serverObject = ZeroKnowledge::createNew("secp384r1", "sha3_512");
@@ -324,31 +324,31 @@ TODO: Include **`Example Usage`**
     constexpr bool DEBUG = true; // Define a constexpr boolean variable DEBUG with value true
     
     void print_msg(const std::string &who, const std::string &message) { // Define a function to print messages
-    if (DEBUG) { // Check if debugging is enabled
-    std::cout << "[" << who << "] " << message << std::endl; // Print the message with source identifier
+        if (DEBUG) { // Check if debugging is enabled
+            std::cout << "[" << who << "] " << message << std::endl; // Print the message with source identifier
         }
     }
     
     bool check_if_queue_empty(std::queue<std::string> &socket) { // Define a function to check if a queue is empty
-    while (true) { // Infinite loop
-    if (!socket.empty()) { // Check if the queue is not empty
-    return true; // Return true if the queue is not empty
+        while (true) { // Infinite loop
+            if (!socket.empty()) { // Check if the queue is not empty
+                return true; // Return true if the queue is not empty
             }
         }
     }
     
     std::string get_content_from_socket(std::queue<std::string> &socket) { // Define a function to get content from a socket (queue)
-    if (check_if_queue_empty(socket)) { // Check if the queue is not empty
-    std::string val = socket.front(); // Get the front element of the queue
-    socket.pop(); // Remove the front element from the queue
-    return val; // Return the retrieved value
+        if (check_if_queue_empty(socket)) { // Check if the queue is not empty
+            std::string val = socket.front(); // Get the front element of the queue
+            socket.pop(); // Remove the front element from the queue
+            return val; // Return the retrieved value
         }
     }
     
     void client(std::queue<std::string> &client_socket, std::queue<std::string> &server_socket) { // Define the client function
-    // Generating the main seed
-    SeedGenerator seed_generator("job"); // Create an instance of SeedGenerator
-    std::vector<unsigned char> main_seed = seed_generator.generate(); // Generate the main seed
+        // Generating the main seed
+        SeedGenerator seed_generator("job"); // Create an instance of SeedGenerator
+        std::vector<unsigned char> main_seed = seed_generator.generate(); // Generate the main seed
     
         // Creating an instance of HMAC_Client for encrypting messages
         print_msg("client", "first");
@@ -375,8 +375,8 @@ TODO: Include **`Example Usage`**
     }
     
     void server(std::queue<std::string> &server_socket, std::queue<std::string> &client_socket) { // Define the server function
-    // Receiving the main seed from the client
-    std::string main_seed = get_content_from_socket(server_socket); // Receive the main seed from the client
+        // Receiving the main seed from the client
+        std::string main_seed = get_content_from_socket(server_socket); // Receive the main seed from the client
     
         // Creating an instance of HMAC_Client for encrypting messages
         HMAC_Client obj("sha256", std::vector<unsigned char>(main_seed.begin(), main_seed.end()), 1); // Create an instance of HMAC_Client
@@ -398,9 +398,9 @@ TODO: Include **`Example Usage`**
     }
     
     void init_talking() { // Define a function to initialize client-server communication
-    std::queue<std::string> client_socket, server_socket; // Create queues for client and server sockets
-    std::thread client_thread(client, std::ref(client_socket), std::ref(server_socket)); // Create a thread for the client function
-    std::thread server_thread(server, std::ref(server_socket), std::ref(client_socket)); // Create a thread for the server function
+        std::queue<std::string> client_socket, server_socket; // Create queues for client and server sockets
+        std::thread client_thread(client, std::ref(client_socket), std::ref(server_socket)); // Create a thread for the client function
+        std::thread server_thread(server, std::ref(server_socket), std::ref(client_socket)); // Create a thread for the server function
     
         // Joining the threads to wait for their completion
         client_thread.join(); // Wait for the client thread to finish
